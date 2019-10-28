@@ -3,14 +3,10 @@
 # link: http://wap.jue-huo.com/app/html/game/1to50/1to50.html
 
 from selenium import webdriver
-from selenium.webdriver.support import ui
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-from bs4 import BeautifulSoup
 from time import sleep
 
 driver = webdriver.Chrome()
 driver.get("http://wap.jue-huo.com/app/html/game/1to50/1to50.html")
 for i in range(1, 51):
     driver.find_element_by_xpath("//*[@style=\"opacity: 1;\" and text() = '{}']".format(i)).click()
-    sleep(0.1)
+    sleep(0.05)  # removing this may make the program run faster, but the 26th div might not be loaded yet, which will make my code crash
